@@ -1,5 +1,46 @@
 version: v3
 
 volumes:
-  db-vol:
-    name: postgres-vol
+  db_vol:
+    name: "postgres-vol"
+  pg_admin-vol:
+
+services:
+  # Adminer Container
+  pg_admin:
+    container_name: PG-ADMIN
+    image: "dpage/pgadmin4"
+    stdin_open: true
+    restart: "always"
+    volumes:
+      - pg_admin-vol:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PWD}
+    env_file:
+      - .env
+    ports:
+      - ${PA_PORT}:80
+    expose:
+      - ${PA_PORT}
+    depends_on:
+      - pg_db
+
+  # Postgres Container
+  pg_db:
+    container_name: PG-DB
+    image: postgres:alpine3.19
+    ports:
+      - ${PG_PORT}:${PG_PORT}
+    expose:
+      - ${PG_PORT}
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PWD}
+      POSTGRES_DB: ${PG_DB}
+    stdin_open: true
+    restart: "always"
+    env_file:
+      - .env
