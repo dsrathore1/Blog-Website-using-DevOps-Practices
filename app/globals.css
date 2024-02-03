@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   background: #282828;
 }
 
-::selection{
+::selection {
   color: white;
   background: #00d612;
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
 }

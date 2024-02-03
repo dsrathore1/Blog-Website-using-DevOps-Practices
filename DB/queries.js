@@ -9,6 +9,4 @@
 export const getBlog = "SELECT * FROM BLOG"
 export const getBlogByID = "SELECT * FROM BLOG WHERE ID=$1 OR SR_NO=$2";
 
-export const postBlogData = "INSERT INTO BLOG (AUTHOR, TITLE, BLOG_DESCRIPTION, BLOG_CONTENT,EMAIL_ID) VALUES($1,$2,$3,$4)"
-
 export const deleteAllData = "TRUNCATE FROM TABLE BLOG";
