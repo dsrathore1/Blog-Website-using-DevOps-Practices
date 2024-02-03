@@ -9,6 +9,7 @@ export const client = new Pool({
 });
 
 
+//! When I am trying with Client function then I need to use this connect function 
 // client.connect(function (err) {
 //     if (err) throw err;
 //     console.log('Your database is connected 🎉');
