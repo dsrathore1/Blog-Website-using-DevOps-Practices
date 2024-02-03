@@ -13,7 +13,7 @@ If you'd like to contribute to this project, start by forking the repository on 
 After forking, clone your forked repository to your local machine:
 
 ```sh
-git clone https://github.com/yourusername/your-blog-website.git
+git clone https://github.com/dsrathore1/Blog-Website-using-DevOps-Practices.git
 ```
 
 ### 3. Create a Branch
