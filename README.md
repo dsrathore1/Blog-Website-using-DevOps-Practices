@@ -40,7 +40,7 @@ To get started with my blog website, follow these steps:
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, feature requests, or bug reports, feel free to open an issue or submit a pull request. Together, we can make this blog website even more awesome! 😊
+Contributions are welcome! If you have any suggestions, feature requests, or bug reports, feel free to open an issue or submit a pull request. [CONTRIBUTE](CONTRIBUTING.md) Together, we can make this blog website even more awesome! 😊
 
 ## License
 
