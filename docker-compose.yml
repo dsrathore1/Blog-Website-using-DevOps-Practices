@@ -44,3 +44,23 @@ services:
     restart: "always"
     env_file:
       - .env
+
+  # App
+
+  frontend:
+    container_name: frontend-container
+    image: fradriks/blog-frontend
+    restart: always
+    working_dir: /app/frontend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app/frontend
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    
+    depends_on:
+      - pg_db

@@ -1,22 +1,23 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import { MdCancel } from "react-icons/md";
 import Image from "next/image";
 import BG from "@/app/Assets/landscape.jpg"
 
 const DetailCard = () => {
-    const [cancel, setCancel] = useState(true);
-
+    let cancel = true;
     return (
         <div className={cancel ? `sticky h-full w-3/4 bg-[#000000d7] rounded-2xl z-0 top-24` : 'hidden'}>
-            <MdCancel className='text-[#ffffffcf] text-4xl absolute right-4 top-2 cursor-pointer' onClick={() => { setCancel(!cancel); }} />
+            <MdCancel className='text-[#ffffffcf] text-4xl absolute right-4 top-2 cursor-pointer' onClick={() => {
+                cancel = false;
+            }} />
             <Image className='w-full rounded-t-2xl h-[60vh] object-cover' src={BG} alt='#' height={100} width={800} />
             <div className='scrollbar text-white px-3 py-5 overflow-y-scroll h-[100vh] snap-y'>
                 <h1 className='text-5xl font-bold'>DevOps Life cycle</h1>
                 <div className='flex text-sm justify-start gap-10 my-5'>
                     <p>December 24, 2023</p> /
                     <p>DevOps</p> /
-                    <p>{ }2 Comments</p>
+                    <p>Author</p>
                 </div>
                 <div className='mt-10 divide-[#bbbbbb33] divide-y-[.5px]'>
                     <div className='flex w-full items-center gap-10'>

@@ -1,6 +1,6 @@
 FROM node:20-alpine3.19 as builder
 
-WORKDIR /app
+WORKDIR /app/frontend
 
 COPY package.json .
 
@@ -12,3 +12,4 @@ RUN npm run build
 
 EXPOSE 3000
 
+CMD [ "npm", 'start' ]
