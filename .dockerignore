@@ -4,3 +4,12 @@ Dockerfile
 .dockerignore
 README.md
 .next
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+.github
+.git
+Bash
+Secrets
+.gitignore
+LICENCE
+package-lock.json
