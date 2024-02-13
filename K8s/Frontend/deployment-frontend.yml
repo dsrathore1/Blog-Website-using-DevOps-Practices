@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  labels:
-    app: frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: frontend-pod
@@ -13,12 +11,12 @@ spec:
     metadata:
       labels:
         app: frontend-pod
-
     spec:
       containers:
-        - name: frontend-container
+        - name: blog-frontend
           image: fradriks/blog-frontend
           ports:
-            - name: frontend-port
-              containerPort: 3000
-              protocol: TCP
+            - containerPort: 3000
+    volumeMounts:
+      mountPath: /app/frontend
+      name: frontend-vol

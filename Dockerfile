@@ -1,15 +1,24 @@
-FROM node:20-alpine3.19 as builder
+#! Stage 1 - Build Stage
+FROM node:20-alpine3.19 as build
 
-WORKDIR /app/frontend
+WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
+RUN npm install --only=production
 
 COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+#! Stage 2 - Production Stage
 
-CMD [ "npm", 'start' ]
+FROM nginx:alpine-slim
+
+RUN rm -rf ./*
+
+WORKDIR /usr/share/nginx/html
+
+COPY --from=build /app/.next  .
+
+CMD [ "nginx", "-g", "daemon off;" ]
