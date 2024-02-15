@@ -3,6 +3,7 @@ version: v3
 volumes:
   db_vol:
     name: "postgres-vol"
+  frontend-vol:
 
 services:
   # Postgres Container
@@ -17,19 +18,20 @@ services:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PWD}
       POSTGRES_DB: ${PG_DB}
-
+    env_file:
+      - .env
   # App
 
   frontend:
     container_name: frontend-container
-    image: fradriks/blog-frontend
-    working_dir: /app/frontend
+    image: fradriks/blog-frontend:1-slim
     build:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/app/frontend
+      - frontend-vol:/app
+      - ./:/app-frontend
     ports:
       - 3000:3000
-    # depends_on:
-    #   - pg_db
+    depends_on:
+      - pg_db
