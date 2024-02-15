@@ -5,7 +5,8 @@ metadata:
 spec:
   selector:
     app: postgresql-pod
+  type: ClusterIP
   ports:
-    - protocol: TCP
+    - name: postgres-service
       port: 5432
       targetPort: 5432

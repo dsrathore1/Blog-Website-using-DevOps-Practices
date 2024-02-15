@@ -14,9 +14,6 @@ spec:
     spec:
       containers:
         - name: blog-frontend
-          image: fradriks/blog-frontend
+          image: fradriks/blog-frontend:1-slim
           ports:
             - containerPort: 3000
-    volumeMounts:
-      mountPath: /app/frontend
-      name: frontend-vol
